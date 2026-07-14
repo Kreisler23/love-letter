@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>For My Love ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Poppins,sans-serif;background:linear-gradient(#0b1024,#ffdde8);overflow-x:hidden;color:#fff}
+#intro{position:fixed;inset:0;background:#050814;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:99}
+h1{font-family:"Great Vibes",cursive;font-size:64px}
+#heart{font-size:90px;animation:pulse 1.3s infinite}
+button{padding:15px 28px;border:none;border-radius:30px;background:#ff4f8b;color:#fff;font-size:18px;cursor:pointer}
+@keyframes pulse{50%{transform:scale(1.15)}}
+.hidden{display:none}
+.container{max-width:1000px;margin:auto;padding:40px 20px;text-align:center}
+#letter{background:rgba(255,255,255,.15);backdrop-filter:blur(10px);padding:25px;border-radius:18px;margin:30px auto;white-space:pre-wrap;line-height:1.8;text-align:left}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.gallery img,.featured img{width:100%;border-radius:18px;box-shadow:0 8px 20px rgba(0,0,0,.4)}
+.featured{max-width:350px;margin:40px auto}
+.heart{position:fixed;color:#ff7aa8;animation:float 8s linear infinite;pointer-events:none}
+@keyframes float{from{transform:translateY(110vh)}to{transform:translateY(-10vh)}}
+footer{padding:40px}
+canvas{position:fixed;inset:0;pointer-events:none}
+</style>
+</head>
+<body>
+<div id="intro">
+<div id="heart">❤️</div>
+<h1>Hi Love</h1>
+<p style="margin:15px">Please wear your earphones.</p>
+<button onclick="start()">Open My Heart ❤️</button>
+<audio id="music" loop>
+<source src="Hold On, We're Going Home.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<canvas id="confetti"></canvas>
+
+<div id="main" class="hidden">
+<div class="container">
+<h1>For You ❤️</h1>
+<div id="letter"></div>
+
+<div class="gallery">
+<img src="silao1.jfif">
+<img src="silao2.jfif">
+<img src="silao3.jfif">
+<img src="silao4.jfif">
+<img src="silao5.jfif">
+<img src="silao6.jfif">
+</div>
+
+<div class="featured">
+<img src="silao7.jfif">
+<h2 style="margin-top:15px">I'll choose you every single day. ❤️</h2>
+</div>
+
+<button onclick="celebrate()">I Love You ❤️</button>
+
+<footer>
+Forever Yours,<br><b>Kenneth</b>
+</footer>
+</div>
+</div>
+
+<script>
+const msg=`Dear Love,
+
+Replace this with your own letter.
+
+Thank you for every laugh, every memory, and every moment we've shared.
+No matter what happens, I will always treasure you.
+
+I love you more than words can describe.
+
+Love,
+Kenneth ❤️`;
+
+let i=0;
+function type(){
+ if(i<msg.length){
+  letter.textContent+=msg.charAt(i++);
+  setTimeout(type,35);
+ }
+}
+function start(){
+ intro.style.display='none';
+ main.classList.remove('hidden');
+ document.getElementById('music').play().catch(()=>{});
+ type();
+}
+setInterval(()=>{
+ const h=document.createElement('div');
+ h.className='heart';
+ h.innerHTML='❤';
+ h.style.left=Math.random()*100+'vw';
+ h.style.fontSize=(15+Math.random()*25)+'px';
+ document.body.appendChild(h);
+ setTimeout(()=>h.remove(),8000);
+},300);
+
+const c=document.getElementById('confetti'),x=c.getContext('2d');
+function celebrate(){
+ c.width=innerWidth;c.height=innerHeight;
+ const arr=[...Array(180)].map(()=>({x:Math.random()*c.width,y:-20*Math.random(),vx:(Math.random()-.5)*4,vy:2+Math.random()*4,s:4+Math.random()*5}));
+ let t=0;
+ (function a(){
+ x.clearRect(0,0,c.width,c.height);
+ arr.forEach(p=>{p.x+=p.vx;p.y+=p.vy;x.fillStyle=`hsl(${Math.random()*360},90%,70%)`;x.fillRect(p.x,p.y,p.s,p.s)});
+ if(t++<220) requestAnimationFrame(a);
+ })();
+ alert("I love you ❤️");
+}
+</script>
+</body>
+</html>
