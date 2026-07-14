@@ -1,11 +1,11 @@
 /* =========================================================
    CONFIG — edit these two things freely
 ========================================================= */
-const ANNIVERSARY_DATE = "2023-02-14T00:00:00"; // <-- change to your real start date
+const MONTHSARRY_DATE = "2026-7-14T04:30:00"; // <-- change to your real start date
 const LOVE_LETTER_TEXT =
 "My Love,\n\n" +
-"[Write your letter here. Talk about how you met, what you love about them, " +
-"an inside joke, a promise for the future — whatever feels true.]\n\n" +
+"[We met in the most unconventional way, yet we found each other in the most random time of our lives and yet it felt just right, " +
+"A ring is a promise of a lifetime, and here I say that I will be with you forever.]\n\n" +
 "I love you more than words can describe.\n\n" +
 "Forever yours,\nKenneth";
 
@@ -218,7 +218,7 @@ function startTypewriter(){
    LOVE COUNTER
 ========================================================= */
 function startLoveCounter(){
-  const start = new Date(ANNIVERSARY_DATE);
+  const start = new Date(MONTHSARRY_DATE);
   const els = {
     y: document.getElementById("cYears"),
     mo: document.getElementById("cMonths"),
