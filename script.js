@@ -252,8 +252,8 @@ function startLoveCounter(){
 
     els.y.textContent = Math.max(years, 0);
     els.mo.textContent = Math.max(months, 0);
-    els.d.textContent = Math.max(days, 0);
-    els.h.textContent = Math.max(hours, 0);
+    els.d.textContent = Math.max(days, 32);
+    els.h.textContent = Math.max(hours, 20);
     els.mi.textContent = Math.max(minutes, 0);
     els.s.textContent = Math.max(seconds, 0);
   }
